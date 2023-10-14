@@ -1,4 +1,6 @@
+import { state } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  username: string = "";
+  password: string = "";
+
+  constructor(private router:Router) { }
 
   ngOnInit() {
+    this.username = "admin";
+    this.password = "admin";
   }
 
+  checkLoginAuth() {
+    if (this.username=="superadmin" && this.password=="12345") {
+      alert ("anda dapat masuk");
+      this.router.navigateByUrl('/home', {state: {userRole : "superadmin"} });
+    } else if(this.username=="admin" && this.password=="12345") {
+      this.router.navigateByUrl('/home', {state: {userRole : "admin"} });
+    } else {
+      alert ("kredensial anda salah");
+    }
+  }
 }

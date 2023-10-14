@@ -14,7 +14,16 @@
   </ion-header>
 
   <div id="container">
+    <div ng-if="userRole==='admin'">
     <ion-img src="https://docs-demo.ionic.io/assets/madison.jpg"></ion-img>
+    </div>
+
+    <div ng-if="userRole==='superadmin'">
+      <ion-img src="https://www.viajes-carrefour.com/blog/wp-content/uploads/2017/10/capadocia-turquia.jpg"></ion-img>
+    </div>
+
     <p> ini adalah sebuah gedung bernama madison buiding di wincousin</p>
+    anda adalah {{userRole}}
+
   </div>
 </ion-content>
